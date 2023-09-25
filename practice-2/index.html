@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yunimekhanik</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat:wght@800&family=PT+Sans&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <button class="button button--pink" onclick="toggleForm()">Нажми меня!</button>
+        <section class="modalfake">
+            <h1 class="title">Стать партнёром проекта</h1>
+
+            <form action="" method="" class="form" onsubmit="submitForm(event)" onchange="activatedButton()">
+
+                <fieldset class="form__item form__item--left">
+                    <label class="form__label" for="name"><span class="form__star"></span> Название организации</label>
+                    <input class="form__input" type="text" id="name" value="" oninput="validatedName(this)"
+                        placeholder="ABC">
+                </fieldset>
+
+                <fieldset class="form__item form__item--right">
+                    <label class="form__label"><span class="form__star"></span> Логотип (jpeg,png) </label>
+                    <div class="form__logo">
+                        <label class="form__label form__label--logo" for="logofile">
+                            Выберите <br>файл
+                            <svg width="30" height="30" class="file">
+                                <use xlink:href="sprite.svg#file"></use>
+                            </svg></label>
+                        <input class="form__input" type="file" style="visibility:hidden;" id="logofile" name="logofile"
+                            value="" oninput="validatedLogo(this)">
+                    </div>
+                </fieldset>
+
+                <fieldset class="form__item form__item--left">
+                    <label class="form__label" for="phone"><span class="form__star"></span> Телефон </label>
+                    <input class="form__input" type="tel" id="phone" value="" oninput="validatedPhone(this)"
+                        placeholder="+0 123 456-78-90">
+                </fieldset>
+
+                <fieldset class="form__item form__item--left">
+                    <label class="form__label" for="email"><span class="form__star"></span> E-mail</label>
+                    <input class="form__input" type="text" id="email" value="" oninput="validatedEmail(this)"
+                        placeholder="abcde@gmail.com">
+                </fieldset>
+
+                <fieldset class="form__item">
+                    <label class="form__label" for="direction"><span class="form__star"></span> Направление</label>
+                    <div onclick="selectOpenMenu()">
+                        <input class="form__input" type="text" id="direction" value="" oninput="validatedDirection(this)">
+                        <svg class="form__svg" width="16" height="23" class="file">
+                            <use xlink:href="sprite.svg#select"></use>
+                        </svg>
+                    </div>
+                    <div class="select__item--fake">
+                        <p className="form__input select__text" onclick="selectItem(event)">Экология</p>
+                        <p className="form__input select__text" onclick="selectItem(event)">Геодезия</p>
+                    </div>
+
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="site"></label>
+                    <input class="form__input" type="text" id="site" value="" placeholder="site">
+                    <svg class="form__svg" width="18" height="18" class="file">
+                        <use xlink:href="sprite.svg#site"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="vkontakte"></label>
+                    <input class="form__input" type="text" id="vkontakte" value="" placeholder="vkontakte">
+                    <svg class="form__svg" width="19" height="19" class="file">
+                        <use xlink:href="sprite.svg#vkontakte"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="ok"></label>
+                    <input class="form__input" type="text" id="ok" value="" placeholder="ok">
+                    <svg class="form__svg" width="18" height="18" class="file">
+                        <use xlink:href="sprite.svg#ok"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="facebook"></label>
+                    <input class="form__input" type="text" id="facebook" value="" placeholder="facebook">
+                    <svg class="form__svg" width="22" height="22" class="file">
+                        <use xlink:href="sprite.svg#facebook"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="instagram"></label>
+                    <input class="form__input" type="text" id="instagram" value="" placeholder="instagram">
+                    <svg class="form__svg" width="22" height="22" class="file">
+                        <use xlink:href="sprite.svg#instagram"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="youtube"></label>
+                    <input class="form__input" type="text" id="youtube" value="" placeholder="youtube">
+                    <svg class="form__svg" width="18" height="18" class="file">
+                        <use xlink:href="sprite.svg#youtube"></use>
+                    </svg>
+                </fieldset>
+                <fieldset class="form__item">
+                    <label class="form__label" for="manager">Руководитель</label>
+                    <input class="form__input" type="text" id="manager" value="">
+                </fieldset>
+
+                <button class="form__button form__button--submit">Стать партнёром проекта</button>
+                <button class="form__button form__button--reset">Отменить</button>
+
+
+            </form>
+        </section>
+        <form class="form-search-fake">
+            <label>Поиск по таблице</label>
+            <input type="text" placeholder="Введите запрос" class="form-search__input form__input" />
+        </form>
+        <section class="tablefake">
+            <table class="table__container">
+                <caption>Ответ запроса</caption>
+                <thead class="table__thead">
+                    <tr class="table__tr">
+                        <th class="table__field table__field--sort" id="userId" onclick="sortTable(event)">User id</th>
+                        <th class="table__field table__field--sort" id="idResponse" onclick="sortTable(event)">Id</th>
+                        <th class="table__field table__field--sort" id="title" onclick="sortTable(event)">Title</th>
+                        <th class="table__field table__field--sort" id="body" onclick="sortTable(event)">Body</th>
+                    </tr>
+                </thead>
+                <tbody class="table__tbody">
+                </tbody>
+                <tfoot></tfoot>
+            </table>
+        </section>
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script src="script.js"></script>
+    </div>
+
+</body>
+
+</html>
