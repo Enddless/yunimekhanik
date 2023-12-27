@@ -101,17 +101,41 @@ function validatedName(name) {
     }
 }
 function validatedLogo(logofile) {
+    logofile.parentNode.classList.remove("errorborder");
+    const input = document.querySelector('#logofile');
     const reg = /^[^?#]+\.(png|jpe?g)([?#].*)?$/i;
-    const existingErrorElement = logofile.nextElementSibling;
-    if (reg.test(logofile.value) && logofile.value !== "") {
-        if (existingErrorElement) {
-            logofile.classList.remove("errorborder");
-            logofile.parentNode.removeChild(logofile.nextElementSibling);
+    const previewImg = document.querySelector('#previewContainer');
+    if (input.files && input.files[0] && reg.test(input.files[0].name)) {
+        logofile.parentNode.classList.remove("errorborder");
+        const reader = new FileReader();
+        reader.onload = function (e) {
+            if (previewImg) {
+                previewImg.setAttribute('src', e.target.result);
+                previewImg.setAttribute('alt', 'Preview');
+            }
         };
+        reader.readAsDataURL(input.files[0]);
         return true;
-    } else {
+    }
+    else {
         logofile.parentNode.classList.add("errorborder");
         return false;
+    }
+}
+function deleteLogo() {
+    // Получаем элемент с изображением предпросмотра и input type='file'
+    var previewImg = document.querySelector('#previewContainer');
+    var fileInput = document.querySelector('#logofile');
+
+    // Удаляем src изображения, чтобы убрать предпросмотр
+    if (previewImg) {
+        previewImg.removeAttribute('src');
+        previewImg.removeAttribute('alt'); // Удаление альтернативного текста
+    }
+
+    // Сбрасываем значение input для очистки выбранного файла
+    if (fileInput) {
+        fileInput.value = "";
     }
 }
 function validatedPhone(phone) {
@@ -259,8 +283,3 @@ function search() {
         }
     })
 }
-
-
-
-
-
