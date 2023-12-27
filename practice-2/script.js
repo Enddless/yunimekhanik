@@ -13,12 +13,17 @@ function toggleSearch() {
 
 function selectOpenMenu() {
     const select = document.querySelector(".select__item--fake");
-    select.classList.toggle("select__item");
+    if (select.classList.contains("select__item")) {
+        select.classList.remove("select__item");
+    } else {
+        select.classList.add("select__item");
+    }
 }
 function selectItem(event) {
     const item = event.target.textContent;
     const input = document.querySelector("#direction");
     input.value = item;
+    validatedDirection(input); 
     selectOpenMenu();
 }
 function submitForm(event) {
