@@ -111,7 +111,7 @@ body {
   grid-column: span 6;
 }
 .form__item--attention {
-  color: var(--color-star);
+  color: red;
 }
 .form__item--left {
   grid-column: span 4;
