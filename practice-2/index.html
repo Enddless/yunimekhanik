@@ -16,6 +16,7 @@
     <div class="wrapper">
         <button class="button button--pink" onclick="toggleForm()">Нажми меня!</button>
         <section class="modalfake">
+            <span class="form__item form__item--attention">После заполнения всех обязательных полей, пожалуйста,нажмите на кнопку, чтобы загрузить данные с https://jsonplaceholder.typicode.com/posts  </span>
             <h1 class="title">Стать партнёром проекта</h1>
 
             <form action="" method="" class="form" onsubmit="submitForm(event)" onchange="activatedButton()">
@@ -124,8 +125,6 @@
                     <label class="form__label" for="manager">Руководитель</label>
                     <input class="form__input" type="text" id="manager" value="">
                 </fieldset>
-
-                <span class="form__item">Нажмите на кнопку, чтобы загрузить данные </span>
                 <button class="form__button form__button--submit">Стать партнёром проекта</button>
                 <button class="form__button form__button--reset">Отменить</button>
 

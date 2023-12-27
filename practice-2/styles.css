@@ -110,6 +110,9 @@ body {
   margin: 16px 0;
   grid-column: span 6;
 }
+.form__item--attention {
+  color: var(--color-star);
+}
 .form__item--left {
   grid-column: span 4;
 }
