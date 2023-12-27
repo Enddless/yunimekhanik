@@ -136,15 +136,11 @@ body {
   color: var(--color-star);
 }
 .form__logo {
-  width: 100%;
-  border-radius: 50%;
   overflow: hidden;
-  position: relative;
-  top: 50%;
-  transform: translate(0, -50%);
   border: none;
-
   position: relative;
+  top:10%;
+  width: 163px;
 }
 
 .form__label--logo {
@@ -181,8 +177,8 @@ body {
   border-radius: 36.167px;
   position: absolute;
   background: white;
-  top: 55px;
-  right: -16px;
+  top: 14px;
+  right: 2px;
   z-index: 10;
   display: flex;
   align-items: center;
@@ -201,6 +197,7 @@ body {
   height: 100%;
   object-fit: cover;
   opacity: 0.3;
+  border-radius: 50%;
 }
 .form__input {
   cursor: pointer;
